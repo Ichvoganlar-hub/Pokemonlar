@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Navbar3 = () => {
+const Korzinka = () => {
   return (
     <div>
-      
+      kozrzinka
     </div>
   )
 }
 
-export default Navbar3
+export default Korzinka

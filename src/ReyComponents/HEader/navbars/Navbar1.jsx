@@ -1,22 +1,22 @@
 import React, { useState } from 'react'
 import { CiLocationOn } from "react-icons/ci";
-import rus from "../../../assets/rus.png"
+import { Link } from "react-router-dom";
 
 const Navbar1 = () => {
     const [modoch, semodoch] = useState(false);
     const [modochnisozi, setmodochnisozi] = useState("Alamli");
 
     return (
-        <nav className='bg-gray-300 py-1'>
-            <div className=' max-w-[85%] mx-auto'>
-                <div className='flex justify-between items-center '>
+        <nav className='bg-gray-300 '>
+            <div className=' max-w-[60%] mx-auto'>
+                <div className='flex justify-between items-center gap-6'>
                     <div
                         onClick={() => semodoch(true)}
                         className='flex justify-center items-center gap-1 cursor-pointer'
                     >
                         <div className='flex justify-center items-center gap-2'>
                             <div className='flex justify-center items-center gap-2'>
-                                <CiLocationOn className='text-xl' />
+                                <CiLocationOn className='text-md' />
                                 <p className=' hover:font-medium'>{modochnisozi}</p>
                             </div>
                             <p>Topshirish punktlari</p>
@@ -25,17 +25,17 @@ const Navbar1 = () => {
 
                     <div className='flex justify-center items-center gap-6'>
                         <div className='flex justify-center items-center gap-1'>
-                            <p className="text-purple-600 font-medium">Sotuvchi bolish</p>
+                            <Link to="/Sotuvchibolish"><p className="text-purple-600 font-medium">Sotuvchi bolish</p></Link>
                             <p className='text-gray-500'>|</p>
-                            <p className="text-purple-600 font-medium">Topshirihs punktini ochish</p>
+                            <Link to="/topshrishpunktiniyaratsih"><p className="text-purple-600 font-medium">Topshirihs punktini ochish</p></Link> 
                         </div>
                         <div className='flex justify-center items-center gap-6'>
-                            <p>savol-javob</p>
-                            <p>Buyurtmalarim</p>
+                            <Link to="/savoljavob"><p>savol-javob</p></Link>
+                            <Link to="/korzinka"><p>Buyurtmalarim</p></Link>
                         </div>
-                        <select defaultValue="Pick a font" className="select select-ghost w-[100px]">
+                        <select defaultValue="Pick a font" className="select select-ghost w-[150px] bg-transpernt  outline-none ">
                             <option disabled={true}>Tilini tanlang</option>
-                            <option>Rus</option>
+                            <option className=''>Rus</option>
                             <option>Uzb</option>
                         </select>
                     </div>

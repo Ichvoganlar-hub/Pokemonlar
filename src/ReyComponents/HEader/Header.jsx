@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar1 from './navbars/Navbar1'
 import Navbar2 from './navbars/Navbar2'
-import Navbar3 from './navbars/Navbar3'
+import Navbar4 from './navbars/Navbar4'
 
 const Header = () => {
     return (
@@ -9,7 +9,7 @@ const Header = () => {
             <div className=''>
                 <Navbar1 />
                 <Navbar2 />
-                <Navbar3 />
+                <Navbar4/>
             </div>
         </div>
     )
