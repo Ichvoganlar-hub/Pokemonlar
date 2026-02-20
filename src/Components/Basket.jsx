@@ -13,7 +13,7 @@ const Basket = () => {
               Bosh sahifadan boshlang — kerakli tovarni qidiruv orqali
               topishingiz yoki to‘plamlarni ko‘rishingiz mumkin
             </p>
-            <Link>
+            <Link to={"/"}>
             <button className="bg-gray-200 py-2 rounded-[10px] px-2 hover:bg-gray-300">Bosh sahifaga</button>
             </Link>
           </div>

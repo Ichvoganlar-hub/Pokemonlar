@@ -53,7 +53,6 @@ const Section1 = ({ filter }) => {
       <div className="grid grid-cols-4 gap-10">
 
         {filteredProducts.map((elem) => (
-          <Link key={elem.id} to={`/product/${elem.id}`}>
             <div
               key={elem.id}
               className="w-[280px] h-[500px] bg-white rounded-2xl shadow-md overflow-hidden "
@@ -63,12 +62,13 @@ const Section1 = ({ filter }) => {
                 <div className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center">
                   <FaRegHeart className="text-gray-500 text-sm" />
                 </div>
-
+               <Link key={elem.id} to={`/product/${elem.id}`}>
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSucVj8sSZqkIb6ILTy75kbdqZeidyJtxlh4A&s"
                   alt=""
                   className="h-[190px] object-contain"
                 />
+               </Link>
               </div>
 
               <div className="p-4 space-y-2">
@@ -115,12 +115,11 @@ const Section1 = ({ filter }) => {
                   {elem.reyting} ({elem.izohlar_soni} sharhlar)
                 </div>
 
-                <button onClick={() => savedBasket(e)} className="w-full mt-2 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-600 to-indigo-600">
+                <button onClick={() => savedBasket(elem)} className="w-full mt-2 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-600 to-indigo-600">
                   21-fevral
                 </button>
               </div>
             </div>
-          </Link>
         ))}
 
       </div>
