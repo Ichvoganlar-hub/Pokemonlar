@@ -9,7 +9,17 @@ const Header = () => {
             <div className=''>
                 <Navbar1 />
                 <Navbar2 />
-                <Navbar4 />
+                <Navbar4  />
+                <button
+                    onClick={() =>
+                        window.scrollTo({
+                            top: 0,
+                            behavior: "smooth",
+                        })
+                    }
+                    className="fixed bottom-6 right-6 bg-purple-600 text-white  w-12 h-12 rounded-full  flex items-center justify-center  shadow-lg hover:bg-purple-700">
+                    ↑
+                </button>
             </div>
         </div>
     )

@@ -1,5 +1,5 @@
 import React from 'react'
-import Section1 from './bodysection/Section1'
+import Section1 from './bodysection/Section1.jsx'
 import HeroSwiper from './bodysection/HeroSwiper'
 import { useParams } from 'react-router-dom'
 import SwiperdanKeyingi from './bodysection/SwiperdanKeyingi.jsx'
