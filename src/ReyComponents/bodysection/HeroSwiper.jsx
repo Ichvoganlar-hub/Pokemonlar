@@ -45,8 +45,6 @@ const HeroSwiper = () => {
               style={{ backgroundImage: `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSucVj8sSZqkIb6ILTy75kbdqZeidyJtxlh4A&s)` }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/10 rounded-2xl"></div>
-
-              
             </div>
           </SwiperSlide>
         ))}
