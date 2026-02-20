@@ -3,6 +3,7 @@ import Section1 from './bodysection/Section1'
 import HeroSwiper from './bodysection/HeroSwiper'
 import { useParams } from 'react-router-dom'
 import SwiperdanKeyingi from './bodysection/SwiperdanKeyingi.jsx'
+import Footer from './Footer/Footer.jsx'
 
 const Home = () => {
   const { filterName } = useParams()
@@ -13,6 +14,7 @@ const Home = () => {
       <HeroSwiper />
       <SwiperdanKeyingi/>
       <Section1 filter={activeFilter} />
+      <Footer/>
     </div>
   )
 }
