@@ -1,10 +1,12 @@
 import React from 'react'
-import Basket from './Components/Basket'
+import Header from './ReyComponents/HEader/Header'
+import { Outlet } from 'react-router-dom'
 
 const App = () => {
   return (
     <div>
-      <Basket/>
+      <Header />
+      <Outlet />
     </div>
   )
 }
