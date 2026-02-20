@@ -11,6 +11,7 @@ import Home from './ReyComponents/Home.jsx'
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Savoljavob from "./pages/Savoljavob.jsx";
+import ProductPage from "./pages/ProductPage.jsx"
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,12 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home />
-      },{
+      },
+      {
+        path:"/category/:filterName",
+        element:<Home />
+      },
+      {
         path: "/sevimlilar",
         element: <Sevimlilar />
       },
@@ -40,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/savoljavob",
         element: <Savoljavob />
+      },
+      {
+        path: "product/:id",
+        element: <ProductPage />
       }
     ]
   },

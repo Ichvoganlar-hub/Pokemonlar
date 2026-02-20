@@ -9,7 +9,7 @@ const Header = () => {
             <div className=''>
                 <Navbar1 />
                 <Navbar2 />
-                <Navbar4/>
+                <Navbar4 />
             </div>
         </div>
     )
