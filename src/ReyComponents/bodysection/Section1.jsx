@@ -36,6 +36,16 @@ const Section1 = ({ filter }) => {
     )
     : products;
 
+    const savedBasket = (product) => {
+      const saveBassket = JSON.parse(localStorage.getItem("basket")) || [];
+      const isAlready = saveBassket.some(e => e.id === product.id);
+      if(!isAlready){
+        saveBassket.push(product);
+        localStorage.setItem("basket", JSON.stringify(saveBassket));
+      
+    }
+  }
+
 
   return (
     <div className="mx-auto max-w-[60%]">
@@ -105,7 +115,7 @@ const Section1 = ({ filter }) => {
                   {elem.reyting} ({elem.izohlar_soni} sharhlar)
                 </div>
 
-                <button className="w-full mt-2 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-600 to-indigo-600">
+                <button onClick={() => savedBasket(elem)} className="w-full mt-2 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-600 to-indigo-600">
                   21-fevral
                 </button>
               </div>
