@@ -62,7 +62,7 @@ const Section1 = ({ filter }) => {
                 <div className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center">
                   <FaRegHeart className="text-gray-500 text-sm" />
                 </div>
-               <Link key={elem.id} to={`/product/${elem.id}`}>
+               <Link to={`/product/${elem.id}`}>
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSucVj8sSZqkIb6ILTy75kbdqZeidyJtxlh4A&s"
                   alt=""

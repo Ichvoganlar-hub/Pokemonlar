@@ -1,6 +1,6 @@
-import { Link, useLocation } from "react-router-dom";
+import React from "react";
 
-const Navbar4 = () => {
+const Navbar4 = ({ setCategory, category }) => {
   const filters = [
     { label: "Barchasi", value: null },
     { label: "Elektronika", value: "Elektronika" },
@@ -9,32 +9,22 @@ const Navbar4 = () => {
   ];
 
   const baseBtn =
-    "inline-flex items-center bg-gray-50 px-3 py-2 rounded-lg shadow-sm cursor-pointer hover:bg-gray-200 transition";
-  const activeBtn = "bg-purple-600 text-white hover:bg-purple-600";
+    "px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-200 transition";
 
-  const location = useLocation();
-  const currentPath = location.pathname;
-  const currentFilter = currentPath.startsWith("/category/")
-    ? decodeURIComponent(currentPath.replace("/category/", ""))
-    : null;
+  const activeBtn = "bg-purple-600 text-white";
 
   return (
-    <div className="max-w-[60%] mx-auto py-1">
+    <div className="max-w-[60%] mx-auto py-2">
       <div className="flex gap-3">
-        {filters.map((item) => {
-          const href = item.value ? `/category/${encodeURIComponent(item.value)}` : "/";
-          const isActive = currentFilter === item.value;
-
-          return (
-            <Link
-              key={item.label}
-              to={href}
-              className={`${baseBtn} ${isActive ? activeBtn : ""}`}
-            >
-              {item.label}
-            </Link>
-          );
-        })}
+        {filters.map((item) => (
+          <button
+            key={item.label}
+            onClick={() => setCategory(item.value)}
+            className={`${baseBtn} ${category === item.value ? activeBtn : ""}`}
+          >
+            {item.label}
+          </button>
+        ))}
       </div>
     </div>
   );
