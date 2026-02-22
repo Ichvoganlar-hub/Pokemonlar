@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import Header from './ReyComponents/HEader/Header'
-import { Outlet } from 'react-router-dom'
-=======
 import React, { useEffect, useState } from "react";
 
 export default function UzumBooksPage() {
@@ -15,19 +10,8 @@ export default function UzumBooksPage() {
       .then((data) => setBooks(data))
       .catch((err) => console.error("JSON faylni yuklashda xato:", err));
   }, []);
->>>>>>> b8f58385f8ccc1073832bb7a50ab89793a156b23
 
   return (
-<<<<<<< HEAD
-    <div>
-      <Header />
-      <Outlet />
-    </div>
-  )
-}
-
-export default App
-=======
     <div className="bg-[#f5f5f7] min-h-screen text-black">
 
 
@@ -263,4 +247,3 @@ export default App
     </div>
   );
 }
->>>>>>> b8f58385f8ccc1073832bb7a50ab89793a156b23
