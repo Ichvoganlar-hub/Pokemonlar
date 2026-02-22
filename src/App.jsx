@@ -1,8 +1,13 @@
 import React from 'react'
+import Header from './ReyComponents/HEader/Header'
+import { Outlet } from 'react-router-dom'
 
 const App = () => {
   return (
-    <div>Ap</div>
+    <div>
+      <Header />
+      <Outlet />
+    </div>
   )
 }
 
