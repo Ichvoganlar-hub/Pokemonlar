@@ -461,7 +461,7 @@ Uzum tezkor        </h3>
     </div>
   </div>
 </section>
-
+ 
 <footer className="bg-gray-950 text-gray-300 py-12">
   <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
     <div>
@@ -482,7 +482,7 @@ Uzum tezkor        </h3>
         <li><a href="#" className="hover:text-white">Положение по обработке персональных данных</a></li>
       </ul>
     </div>
-    
+
 
     <div>
       <h3 className="text-white font-bold mb-4">Соцсети Uzum Sellers</h3>
