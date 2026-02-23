@@ -1,12 +1,12 @@
-import React from 'react'
-import Header from './ReyComponents/HEader/Header'
-import { Outlet } from 'react-router-dom'
-import React, { useEffect, useState } from "react";
+import Header from "./components/header/Header";
+import Footer from "./components/layout/Footer";
+import { Outlet } from "react-router-dom";
 const App = () => {
   return (
     <div>
       <Header />
       <Outlet />
+      <Footer />
     </div>
   )
 }

@@ -1,11 +1,5 @@
-import React from 'react'
-
 const Savoljavob = () => {
-  return (
-    <div>
-      savol jabov
-    </div>
-  )
-}
+  return <div>Savol-javob</div>;
+};
 
-export default Savoljavob
+export default Savoljavob;

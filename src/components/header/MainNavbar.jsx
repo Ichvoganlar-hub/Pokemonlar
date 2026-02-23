@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FiUser, FiHeart, FiShoppingBag, FiChevronRight, FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-const catalogData = [
+const CATALOG_DATA = [
   {
     name: "Elektronika",
     children: ["Smartfonlar", "Noutbuklar", "Televizorlar", "O'yin konsollari"],
@@ -29,32 +29,29 @@ const catalogData = [
   },
 ];
 
-const Navbar2 = () => {
+const MainNavbar = () => {
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(catalogData[0].name);
-  const [open, setOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(CATALOG_DATA[0].name);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [phone, setPhone] = useState("");
-
+  const [password, setPassword] = useState("");
 
   const activeItem =
-    catalogData.find((item) => item.name === activeCategory) ?? catalogData[0];
+    CATALOG_DATA.find((item) => item.name === activeCategory) ?? CATALOG_DATA[0];
 
   const toCategoryPath = (name) => `/category/${encodeURIComponent(name)}`;
 
   return (
     <nav className="mx-auto">
       <div className="mx-auto max-w-[60%] h-18 flex items-center gap-6">
-
         <Link to="/">
           <img src="/uzuzm.png" alt="logo" className="w-auto object-contain" />
         </Link>
 
         <div className="relative flex items-center justify-between gap-5 flex-1">
-
-
           <button
             type="button"
-            onClick={() => setIsCatalogOpen((prev) => !prev)}
+            onClick={() => setIsCatalogOpen((prevValue) => !prevValue)}
             className="h-10 flex items-center gap-2 bg-purple-100 text-purple-600 font-medium px-4 rounded-lg hover:bg-purple-200 transition"
           >
             <img src="/catalog.png" alt="catalog" className="w-5 h-5" />
@@ -62,15 +59,25 @@ const Navbar2 = () => {
           </button>
 
           <div className="flex h-10 justify-between items-center bg-white border w-[400px] border-gray-300 rounded-md">
-            <input type="text" placeholder="Mahsulotlar va turkumlar izlash" className="flex-1 h-full pl-2 text-sm outline-none border-none" />
-            <div className="pl-4 text-gray-600 bg-gray-200 px-5 py-[10px] cursor-pointer"> <FiSearch size={18} />
+            <input
+              type="text"
+              placeholder="Mahsulotlar va turkumlar izlash"
+              className="flex-1 h-full pl-2 text-sm outline-none border-none"
+            />
+            <div className="pl-4 text-gray-600 bg-gray-200 px-5 py-[10px] cursor-pointer">
+              <FiSearch size={18} />
             </div>
           </div>
 
-          <div onClick={() => setOpen(true)} className="h-10 flex items-center gap-2 cursor-pointer">
+          <button
+            type="button"
+            onClick={() => setIsLoginOpen(true)}
+            className="h-10 flex items-center gap-2 cursor-pointer"
+          >
             <FiUser size={18} />
             <span>Kirish</span>
-          </div>
+          </button>
+
           <Link to="/sevimlilar" className="h-10 flex items-center gap-2 hover:text-black">
             <FiHeart size={18} />
             <span>Saralangan</span>
@@ -86,18 +93,18 @@ const Navbar2 = () => {
       {isCatalogOpen && (
         <div className="absolute left-0 top-[110px] w-full bg-white shadow-xl h-[850px] z-50">
           <div className="max-w-[1200px] mx-auto grid grid-cols-[290px_1fr] min-h-[420px]">
-
             <div className="border-r bg-gray-50 border-gray-300 py-3">
-              {catalogData.map((item) => (
+              {CATALOG_DATA.map((item) => (
                 <button
                   key={item.name}
                   type="button"
                   onMouseEnter={() => setActiveCategory(item.name)}
                   onClick={() => setActiveCategory(item.name)}
-                  className={`w-full px-4 py-3 flex items-center justify-between text-left hover:bg-purple-50 ${activeCategory === item.name
-                    ? "bg-purple-100 text-purple-700"
-                    : "text-gray-800"
-                    }`}
+                  className={`w-full px-4 py-3 flex items-center justify-between text-left hover:bg-purple-50 ${
+                    activeCategory === item.name
+                      ? "bg-purple-100 text-purple-700"
+                      : "text-gray-800"
+                  }`}
                 >
                   <span>{item.name}</span>
                   <FiChevronRight />
@@ -115,57 +122,54 @@ const Navbar2 = () => {
               </Link>
 
               <div className="mt-5 grid grid-cols-3 gap-4">
-                {activeItem.children.map((sub) => (
+                {activeItem.children.map((subCategory) => (
                   <Link
-                    key={sub}
-                    to={toCategoryPath(sub)}
+                    key={subCategory}
+                    to={toCategoryPath(subCategory)}
                     onClick={() => setIsCatalogOpen(false)}
                     className="text-[15px] text-gray-700 hover:text-purple-700"
                   >
-                    {sub}
+                    {subCategory}
                   </Link>
                 ))}
-
               </div>
             </div>
-
           </div>
         </div>
       )}
-      {open && (
+
+      {isLoginOpen && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
           <div className="w-[380px] bg-white rounded-2xl p-6 shadow-xl">
-
             <div className="flex items-center justify-center gap-2 mb-6">
-              <div className="w-6 h-6 bg-purple-600 rounded-full"></div>
+              <div className="w-6 h-6 bg-purple-600 rounded-full" />
               <span className="text-purple-600 font-semibold text-lg">uzumID</span>
             </div>
 
-            <h2 className="text-center text-xl font-semibold mb-6">
-              Uzum Market’ga kirish
-            </h2>
+            <h2 className="text-center text-xl font-semibold mb-6">Uzum Marketga kirish</h2>
 
             <input
               value={phone}
-              onChange={(e) => setPhone(e.value)}
+              onChange={(event) => setPhone(event.target.value)}
               type="text"
               placeholder="+998 00 000-00-00"
               className="w-full bg-gray-100 rounded-xl px-4 py-3 outline-none mb-5"
             />
 
-
             <input
-              value={phone}
-              onChange={(e) => setPhone(e.value)}
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
               type="password"
               placeholder="*******"
               className="w-full bg-gray-100 rounded-xl px-4 py-3 outline-none mb-5"
             />
 
             <button
+              type="button"
               onClick={() => {
-                setPhone("");  
-                setOpen(false);
+                setPhone("");
+                setPassword("");
+                setIsLoginOpen(false);
               }}
               className="w-full py-3 rounded-xl text-white bg-purple-600"
             >
@@ -175,12 +179,11 @@ const Navbar2 = () => {
             <p className="text-center text-xs text-gray-500 mt-5 leading-5">
               Davom etgan holda men shaxsiy ma'lumotlarni qayta ishlash siyosatiga rozilik bildiraman
             </p>
-
           </div>
         </div>
       )}
-    </nav >
+    </nav>
   );
 };
 
-export default Navbar2;
+export default MainNavbar;

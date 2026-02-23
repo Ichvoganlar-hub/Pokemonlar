@@ -1,19 +1,34 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Basket from "../Components/Basket";
+import EmptyBasket from "../components/basket/EmptyBasket";
+
+const STORAGE_KEY_BASKET = "basket";
+
+const getBasketItems = () => {
+  const rawValue = localStorage.getItem(STORAGE_KEY_BASKET);
+  if (!rawValue) {
+    return [];
+  }
+
+  try {
+    const parsedValue = JSON.parse(rawValue);
+    return Array.isArray(parsedValue) ? parsedValue : [];
+  } catch {
+    return [];
+  }
+};
+
+const setBasketItems = (items) => {
+  localStorage.setItem(STORAGE_KEY_BASKET, JSON.stringify(items));
+};
 
 const Korzinka = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("basket")) || [];
-    setProducts(data);
-  }, []);
+  const [products, setProducts] = useState(() => getBasketItems());
 
   const updateBasket = (data) => {
     setProducts(data);
-    localStorage.setItem("basket", JSON.stringify(data));
+    setBasketItems(data);
   };
 
   const changeCount = (id, type) => {
@@ -35,7 +50,7 @@ const Korzinka = () => {
     updateBasket(products.filter((item) => item.id !== id));
   };
 
-  if (products.length === 0) return <Basket />;
+  if (products.length === 0) return <EmptyBasket />;
 
   const total = products.reduce(
     (sum, item) => sum + item.narx * (item.count || 1),
@@ -79,7 +94,7 @@ const Korzinka = () => {
               <div className="flex border rounded-lg overflow-hidden">
                 <button
                   onClick={() => changeCount(item.id, "minus")}
-                  className="px-4 py-2 hover:bg-gray-100"
+                  className="pl-7 py-2 hover:bg-gray-100 text-center"
                 >
                   -
                 </button>
@@ -88,7 +103,7 @@ const Korzinka = () => {
                 </span>
                 <button
                   onClick={() => changeCount(item.id, "plus")}
-                  className="px-6  py-2 hover:bg-gray-100"
+                  className="pr-8  py-2 hover:bg-gray-100 text-center"
                 >
                   +
                 </button>

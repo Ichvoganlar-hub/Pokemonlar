@@ -4,9 +4,9 @@ import './index.css'
 import App from './App.jsx'
 import Sevimlilar from "./pages/Sevimlilar.jsx";
 import Korzinka from "./pages/Korzinka.jsx";
-import Sotuvchibolish from "./pages/sotuvchibolish.jsx";
+import Sotuvchibolish from "./pages/Sotuvchibolish.jsx";
 import Topshirishpunktiniochish from "./pages/Topshirishpunktiniochish.jsx";
-import Home from './ReyComponents/Home.jsx'
+import HomePage from "./components/home/HomePage.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Savoljavob from "./pages/Savoljavob.jsx";
@@ -19,12 +19,12 @@ const router = createBrowserRouter([
     errorElement: <div className="p-10 text-red-600 text-xl">404 | Sahifa topilmadi</div>,
     children: [
       {
-        path:"/",
-        element:<Home />
+        path: "/",
+        element: <HomePage />
       },
       {
-        path:"/category/:filterName",
-        element:<Home />
+        path: "/category/:filterName",
+        element: <HomePage />
       },
       {
         path: "/sevimlilar",
@@ -35,15 +35,15 @@ const router = createBrowserRouter([
         element: <Korzinka />
       },
       {
-        path: "/Sotuvchibolish",
+        path: "/sotuvchibolish",
         element: <Sotuvchibolish />
       },
       {
-        path: "/topshrishpunktiniyaratsih",
+        path: "/topshirish-punkti",
         element: <Topshirishpunktiniochish />
       },
       {
-        path: "/savoljavob",
+        path: "/savol-javob",
         element: <Savoljavob />
       },
       {

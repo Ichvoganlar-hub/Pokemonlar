@@ -1,11 +1,5 @@
-import React from 'react'
+const Sotuvchibolish = () => {
+  return <div>Sotuvchi bo'lish</div>;
+};
 
-const sotuvchibolish = () => {
-  return (
-    <div>
-      sotuvchibolish
-    </div>
-  )
-}
-
-export default sotuvchibolish
+export default Sotuvchibolish;
